@@ -1,0 +1,8 @@
+trishala_vpc_cidr_block = "10.0.0.0/16"
+public_subnet_cidr_block = "10.0.0.0/24"
+private_subnet_cidr_block = "10.0.1.0/24"
+availability_zone = "ap-south-1a"
+my_ip = "49.205.255.252/32"
+ami_id = "ami-0861f4e788f5069dd" # Amazon Linux 2
+instance_type = "t2.micro"
+key_name = "jenkins-server-key"
