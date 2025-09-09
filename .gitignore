@@ -1,0 +1,31 @@
+# --- Terraform State Files ---
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfstate.downloaded
+
+# --- Terraform Working Directory ---
+.terraform/
+.terraform.lock.hcl
+
+# --- Local Override Files (safe to ignore) ---
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# --- Sensitive Variable Files (if they contain secrets) ---
+*.auto.tfvars
+*.tfvars.json
+
+# --- CLI Output Files ---
+crash.log
+crash.*.log
+
+# --- OS / Editor Files ---
+.DS_Store
+*.swp
+*.swo
+*.bak
+*.tmp
