@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    java_package: openjdk-11-jdk
+    docker_users:
+      - ubuntu
+    jenkins_port: 8080
+  roles:
+    - common
+    - docker
+    - jenkins

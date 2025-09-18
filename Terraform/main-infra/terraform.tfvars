@@ -1,0 +1,17 @@
+trishala_vpc_cidr_block     = "10.0.0.0/16"
+public_subnet_cidr_block_1  = "10.0.0.0/24"
+public_subnet_cidr_block_2  = "10.0.1.0/24"
+private_subnet_cidr_block_1 = "10.0.2.0/24"
+private_subnet_cidr_block_2 = "10.0.3.0/24"
+availability_zone_1         = "ap-south-1a"
+availability_zone_2         = "ap-south-1b"
+my_ip                       = "49.205.255.246/32"
+ami_id                      = "ami-02d26659fd82cf299" # Ubuntu AMI
+instance_type               = "t2.large"
+key_name                    = "jenkins-server-key"
+cluster_name                = "dev-cluster"
+subnet_ids                  = ["subnet-009a2d724c5fc043d", "subnet-0681da0e7c86ee1d0"]
+node_instance_type          = "t3.large"
+desired_capacity            = 2
+min_capacity                = 1
+max_capacity                = 3 

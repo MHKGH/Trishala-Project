@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    java_package: openjdk-17-jdk
+    docker_users:
+      - jenkins
+    jenkins_port: 8080
+  roles:
+    - common
+    - docker
+    - maven
+    - jenkins

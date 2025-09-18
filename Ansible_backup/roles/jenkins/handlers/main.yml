@@ -1,0 +1,11 @@
+- name: restart jenkins
+  block:
+    - name: Reload systemd
+      command: systemctl daemon-reexec
+      become: yes
+
+    - name: Restart Jenkins service
+      service:
+        name: jenkins
+        state: restarted
+        enabled: yes

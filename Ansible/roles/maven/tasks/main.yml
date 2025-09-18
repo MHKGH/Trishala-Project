@@ -1,0 +1,10 @@
+# maven/tasks/main.yml
+- name: Ensure Java is installed
+  package:
+    name: openjdk-17-jdk
+    state: present
+
+- name: Install Maven
+  package:
+    name: maven
+    state: present

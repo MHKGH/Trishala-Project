@@ -1,0 +1,5 @@
+---
+# Default variables
+java_package: openjdk-11-jdk
+jenkins_port: 8080
+jenkins_home: /var/lib/jenkins

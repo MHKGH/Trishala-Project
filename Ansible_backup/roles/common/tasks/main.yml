@@ -1,0 +1,15 @@
+---
+# Common role: update system and install basic packages
+- name: Update all packages
+  apt:
+    name: "*"
+    state: latest
+
+- name: Install required tools
+  apt:
+    name:
+      - git
+      - curl
+      - wget
+      - unzip
+    state: present

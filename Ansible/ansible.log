@@ -1,0 +1,1023 @@
+2025-09-10 23:23:40,922 p=191451 u=hemanth n=ansible | ERROR! the role 'jenkins' was not found in /home/hemanth/Documents/Trishala/Ansible/playbooks/roles:/home/hemanth/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hemanth/Documents/Trishala/Ansible/playbooks
+
+The error appears to be in '/home/hemanth/Documents/Trishala/Ansible/playbooks/site.yml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - jenkins
+      ^ here
+
+2025-09-10 23:25:35,934 p=192060 u=hemanth n=ansible | PLAY [jenkins_server] ************************************************************************************************************
+2025-09-10 23:25:35,957 p=192060 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-10 23:25:40,242 p=192060 u=hemanth n=ansible | [WARNING]: Platform linux on host dev-jenkins-server is using the discovered Python interpreter at /usr/bin/python3.9, but future
+installation of another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.16/reference_appendices/interpreter_discovery.html for more information.
+
+2025-09-10 23:25:40,242 p=192060 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-10 23:25:40,276 p=192060 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-10 23:25:42,975 p=192060 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-10 23:25:42,990 p=192060 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-10 23:25:45,525 p=192060 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-10 23:25:45,540 p=192060 u=hemanth n=ansible | TASK [jenkins : Import Jenkins GPG key] ******************************************************************************************
+2025-09-10 23:25:47,713 p=192060 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-10 23:25:47,729 p=192060 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-10 23:25:49,896 p=192060 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-10 23:25:49,913 p=192060 u=hemanth n=ansible | TASK [jenkins : Configure Jenkins] ***********************************************************************************************
+2025-09-10 23:25:52,177 p=192060 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item={'regexp': '^JAVA_HOME=', 'line': 'JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto'})
+2025-09-10 23:25:54,077 p=192060 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item={'regexp': '^JENKINS_PORT=', 'line': 'JENKINS_PORT=8080'})
+2025-09-10 23:25:54,103 p=192060 u=hemanth n=ansible | TASK [jenkins : Start Jenkins] ***************************************************************************************************
+2025-09-10 23:25:57,196 p=192060 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-10 23:25:57,200 p=192060 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-10 23:25:57,201 p=192060 u=hemanth n=ansible | dev-jenkins-server         : ok=6    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-10 23:31:35,670 p=193866 u=hemanth n=ansible | PLAY [jenkins_server] ************************************************************************************************************
+2025-09-10 23:31:35,692 p=193866 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-10 23:31:42,210 p=193866 u=hemanth n=ansible | [WARNING]: Platform linux on host dev-jenkins-server is using the discovered Python interpreter at /usr/bin/python3.9, but future
+installation of another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.16/reference_appendices/interpreter_discovery.html for more information.
+
+2025-09-10 23:31:42,210 p=193866 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-10 23:31:42,242 p=193866 u=hemanth n=ansible | TASK [jenkins : Update system packages] ******************************************************************************************
+2025-09-10 23:31:45,544 p=193866 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-10 23:31:45,559 p=193866 u=hemanth n=ansible | TASK [jenkins : Install Java 11] *************************************************************************************************
+2025-09-10 23:31:48,705 p=193866 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-10 23:31:48,720 p=193866 u=hemanth n=ansible | TASK [jenkins : Set JAVA_HOME environment] ***************************************************************************************
+2025-09-10 23:31:50,640 p=193866 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-10 23:31:50,653 p=193866 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-10 23:31:52,588 p=193866 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-10 23:31:52,602 p=193866 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-10 23:31:54,600 p=193866 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-10 23:31:54,617 p=193866 u=hemanth n=ansible | TASK [jenkins : Create Jenkins directories] **************************************************************************************
+2025-09-10 23:31:56,582 p=193866 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=/var/lib/jenkins)
+2025-09-10 23:31:58,216 p=193866 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=/var/log/jenkins)
+2025-09-10 23:31:58,236 p=193866 u=hemanth n=ansible | TASK [jenkins : Configure Jenkins for Amazon Linux] ******************************************************************************
+2025-09-10 23:32:02,615 p=193866 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-10 23:32:02,630 p=193866 u=hemanth n=ansible | TASK [jenkins : Start and enable Jenkins] ****************************************************************************************
+2025-09-10 23:32:06,180 p=193866 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-10 23:32:06,185 p=193866 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-10 23:32:06,186 p=193866 u=hemanth n=ansible | dev-jenkins-server         : ok=8    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 13:01:51,615 p=48527 u=hemanth n=ansible | ERROR! the role 'common' was not found in /home/hemanth/Documents/Trishala/Ansible/playbooks/roles:/home/hemanth/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hemanth/Documents/Trishala/Ansible/playbooks
+
+The error appears to be in '/home/hemanth/Documents/Trishala/Ansible/playbooks/site.yml': line 10, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - common
+      ^ here
+
+2025-09-11 13:04:35,369 p=50041 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 13:04:35,389 p=50041 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 13:04:35,991 p=50041 u=hemanth n=ansible | fatal: [dev-jenkins-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '52.66.79.12' (ED25519) to the list of known hosts.\r\nubuntu@52.66.79.12: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2025-09-11 13:04:35,992 p=50041 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 13:04:35,993 p=50041 u=hemanth n=ansible | dev-jenkins-server         : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2025-09-11 13:17:33,958 p=57431 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 13:17:33,977 p=57431 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 13:17:37,780 p=57431 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:17:37,821 p=57431 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 13:17:39,559 p=57431 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:17:39,572 p=57431 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 13:17:44,302 p=57431 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:17:44,337 p=57431 u=hemanth n=ansible | TASK [docker : Install Docker] ***************************************************************************************************
+2025-09-11 13:17:45,762 p=57431 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "No package matching 'docker' is available"}
+2025-09-11 13:17:45,765 p=57431 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 13:17:45,766 p=57431 u=hemanth n=ansible | dev-jenkins-server         : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 13:19:49,361 p=58822 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 13:19:49,376 p=58822 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 13:19:54,007 p=58822 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:19:54,035 p=58822 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 13:19:55,809 p=58822 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:19:55,823 p=58822 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 13:19:57,106 p=58822 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:19:57,126 p=58822 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 13:20:19,726 p=58822 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:20:19,740 p=58822 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 13:20:22,062 p=58822 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:20:22,076 p=58822 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 13:20:31,419 p=58822 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:20:31,435 p=58822 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 13:21:00,079 p=58822 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:21:00,099 p=58822 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 13:21:02,703 p=58822 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:21:02,720 p=58822 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 13:21:04,245 p=58822 u=hemanth n=ansible | changed: [dev-jenkins-server] => (item=ec2-user)
+2025-09-11 13:21:04,271 p=58822 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 13:21:05,959 p=58822 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "No package matching 'java-11-openjdk' is available"}
+2025-09-11 13:21:05,961 p=58822 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 13:21:05,961 p=58822 u=hemanth n=ansible | dev-jenkins-server         : ok=9    changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 13:23:31,968 p=61023 u=hemanth n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  found unacceptable key (unhashable type: 'AnsibleMapping')
+
+The error appears to be in '/home/hemanth/Documents/Trishala/Ansible/roles/jenkins/tasks/main.yml': line 4, column 12, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  apt:
+    name: {{ jenkins_java_package }}
+           ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2025-09-11 13:25:16,140 p=62018 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 13:25:16,156 p=62018 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 13:25:20,179 p=62018 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:25:20,218 p=62018 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 13:25:51,152 p=62018 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:25:51,163 p=62018 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 13:25:53,092 p=62018 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:25:53,115 p=62018 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 13:25:56,281 p=62018 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:25:56,294 p=62018 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 13:26:00,297 p=62018 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:26:00,309 p=62018 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 13:26:02,437 p=62018 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:26:02,452 p=62018 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 13:26:06,200 p=62018 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:26:06,217 p=62018 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 13:26:08,255 p=62018 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:26:08,271 p=62018 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 13:26:09,608 p=62018 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ec2-user)
+2025-09-11 13:26:09,628 p=62018 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 13:26:09,648 p=62018 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'jenkins_java_package' is undefined. 'jenkins_java_package' is undefined\n\nThe error appears to be in '/home/hemanth/Documents/Trishala/Ansible/roles/jenkins/tasks/main.yml': line 2, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n# Jenkins role (Ubuntu/Debian)\n- name: Install Java\n  ^ here\n"}
+2025-09-11 13:26:09,649 p=62018 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 13:26:09,650 p=62018 u=hemanth n=ansible | dev-jenkins-server         : ok=9    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 13:28:30,133 p=63981 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 13:28:30,152 p=63981 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 13:28:34,181 p=63981 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:28:34,219 p=63981 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 13:28:36,546 p=63981 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:28:36,569 p=63981 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 13:28:38,297 p=63981 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:28:38,317 p=63981 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 13:28:41,364 p=63981 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:28:41,377 p=63981 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 13:28:42,995 p=63981 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:28:43,008 p=63981 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 13:28:44,551 p=63981 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:28:44,569 p=63981 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 13:28:47,606 p=63981 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:28:47,618 p=63981 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 13:28:49,366 p=63981 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:28:49,390 p=63981 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 13:28:50,678 p=63981 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ec2-user)
+2025-09-11 13:28:50,698 p=63981 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 13:28:53,462 p=63981 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "No package matching 'java-11-openjdk' is available"}
+2025-09-11 13:28:53,464 p=63981 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 13:28:53,465 p=63981 u=hemanth n=ansible | dev-jenkins-server         : ok=9    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 13:31:28,098 p=65756 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 13:31:28,118 p=65756 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 13:31:32,344 p=65756 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 13:31:32,367 p=65756 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 13:32:05,204 p=65756 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:32:05,232 p=65756 u=hemanth n=ansible | TASK [jenkins : Add Jenkins key] *************************************************************************************************
+2025-09-11 13:32:07,515 p=65756 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:32:07,533 p=65756 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repo] ************************************************************************************************
+2025-09-11 13:32:18,112 p=65756 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:32:18,135 p=65756 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-11 13:32:37,755 p=65756 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 13:32:37,770 p=65756 u=hemanth n=ansible | TASK [jenkins : Start and enable Jenkins] ****************************************************************************************
+2025-09-11 13:32:39,726 p=65756 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-11 13:32:39,731 p=65756 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 13:32:39,731 p=65756 u=hemanth n=ansible | dev-jenkins-server         : ok=5    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 14:04:04,165 p=84081 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 14:04:04,186 p=84081 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 14:04:07,851 p=84081 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:04:07,874 p=84081 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-11 14:04:11,379 p=84081 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:04:11,414 p=84081 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 14:04:11,415 p=84081 u=hemanth n=ansible | dev-jenkins-server         : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-09-11 14:05:11,167 p=84704 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 14:05:11,183 p=84704 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 14:05:14,928 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:14,965 p=84704 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 14:05:17,245 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:17,260 p=84704 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 14:05:18,951 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:18,968 p=84704 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 14:05:22,456 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:22,468 p=84704 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 14:05:24,003 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:24,019 p=84704 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 14:05:25,944 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:25,961 p=84704 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 14:05:29,217 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:29,233 p=84704 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 14:05:30,874 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:30,890 p=84704 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 14:05:32,301 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ec2-user)
+2025-09-11 14:05:32,322 p=84704 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 14:05:35,793 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:35,806 p=84704 u=hemanth n=ansible | TASK [jenkins : Add Jenkins key] *************************************************************************************************
+2025-09-11 14:05:37,219 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:37,228 p=84704 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repo] ************************************************************************************************
+2025-09-11 14:05:38,857 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:38,867 p=84704 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-11 14:05:41,925 p=84704 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:05:41,963 p=84704 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 14:05:41,964 p=84704 u=hemanth n=ansible | dev-jenkins-server         : ok=13   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-09-11 14:15:30,317 p=90722 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 14:15:30,336 p=90722 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 14:15:34,761 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:34,787 p=90722 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 14:15:37,071 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:37,082 p=90722 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 14:15:38,814 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:38,833 p=90722 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 14:15:42,191 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:42,202 p=90722 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 14:15:43,830 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:43,845 p=90722 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 14:15:45,678 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:45,691 p=90722 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 14:15:49,079 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:49,089 p=90722 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 14:15:51,343 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:51,358 p=90722 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 14:15:52,757 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ec2-user)
+2025-09-11 14:15:52,790 p=90722 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 14:15:56,130 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:56,142 p=90722 u=hemanth n=ansible | TASK [jenkins : Add Jenkins key] *************************************************************************************************
+2025-09-11 14:15:57,742 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:57,757 p=90722 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-11 14:15:59,122 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:15:59,133 p=90722 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************
+2025-09-11 14:16:02,254 p=90722 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 14:16:02,270 p=90722 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-11 14:16:04,138 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:16:04,154 p=90722 u=hemanth n=ansible | TASK [jenkins : Configure Jenkins environment] ***********************************************************************************
+2025-09-11 14:16:07,155 p=90722 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 14:16:07,168 p=90722 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins home directory exists] ****************************************************************************
+2025-09-11 14:16:08,802 p=90722 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:16:08,817 p=90722 u=hemanth n=ansible | TASK [jenkins : Start and enable Jenkins] ****************************************************************************************
+2025-09-11 14:16:11,377 p=90722 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-11 14:16:11,381 p=90722 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 14:16:11,382 p=90722 u=hemanth n=ansible | dev-jenkins-server         : ok=16   changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 14:24:37,767 p=96069 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************************************************************************
+2025-09-11 14:24:37,784 p=96069 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************
+2025-09-11 14:24:41,568 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:24:41,604 p=96069 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************************************************************************
+2025-09-11 14:24:44,086 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:24:44,097 p=96069 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************************************************************************
+2025-09-11 14:24:45,819 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:24:45,841 p=96069 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************************************************************************
+2025-09-11 14:24:49,099 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:24:49,119 p=96069 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************************************************************************
+2025-09-11 14:24:50,701 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:24:50,723 p=96069 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************************************************************************
+2025-09-11 14:24:52,284 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:24:52,299 p=96069 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************************************************************************
+2025-09-11 14:24:55,548 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:24:55,575 p=96069 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************************************************************************
+2025-09-11 14:24:57,301 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:24:57,321 p=96069 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************************************************************************
+2025-09-11 14:24:58,731 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ec2-user)
+2025-09-11 14:24:58,752 p=96069 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************************************************************************
+2025-09-11 14:25:02,491 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:25:02,502 p=96069 u=hemanth n=ansible | TASK [jenkins : Add Jenkins key] *************************************************************************************************************************************************************
+2025-09-11 14:25:05,108 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:25:05,118 p=96069 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************************************************************************
+2025-09-11 14:25:06,617 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:25:06,633 p=96069 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************************************************************************
+2025-09-11 14:25:09,521 p=96069 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 14:25:09,540 p=96069 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************************************************************************
+2025-09-11 14:25:11,336 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:25:11,347 p=96069 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins home directory exists] ****************************************************************************************************************************************
+2025-09-11 14:25:12,660 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:25:12,678 p=96069 u=hemanth n=ansible | TASK [jenkins : Configure Jenkins environment] ***********************************************************************************************************************************************
+2025-09-11 14:25:14,801 p=96069 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:25:14,815 p=96069 u=hemanth n=ansible | TASK [jenkins : Start and enable Jenkins] ****************************************************************************************************************************************************
+2025-09-11 14:25:16,658 p=96069 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-11 14:25:16,661 p=96069 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2025-09-11 14:25:16,661 p=96069 u=hemanth n=ansible | dev-jenkins-server         : ok=16   changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 14:33:40,037 p=101170 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************************************************************************
+2025-09-11 14:33:40,058 p=101170 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************
+2025-09-11 14:33:47,456 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:33:47,487 p=101170 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************************************************************************
+2025-09-11 14:33:50,302 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:33:50,313 p=101170 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************************************************************************
+2025-09-11 14:33:56,387 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:33:56,412 p=101170 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************************************************************************
+2025-09-11 14:34:02,653 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:02,663 p=101170 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************************************************************************
+2025-09-11 14:34:13,258 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:13,277 p=101170 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************************************************************************
+2025-09-11 14:34:15,636 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:15,654 p=101170 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************************************************************************
+2025-09-11 14:34:21,451 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:21,465 p=101170 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************************************************************************
+2025-09-11 14:34:23,849 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:23,873 p=101170 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************************************************************************
+2025-09-11 14:34:25,333 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ec2-user)
+2025-09-11 14:34:25,355 p=101170 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************************************************************************
+2025-09-11 14:34:28,615 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:28,626 p=101170 u=hemanth n=ansible | TASK [jenkins : Add Jenkins key] *************************************************************************************************************************************************************
+2025-09-11 14:34:30,439 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:30,458 p=101170 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************************************************************************
+2025-09-11 14:34:31,891 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:31,909 p=101170 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************************************************************************
+2025-09-11 14:34:36,353 p=101170 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 14:34:36,367 p=101170 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************************************************************************
+2025-09-11 14:34:38,971 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:38,982 p=101170 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins home directory exists] ****************************************************************************************************************************************
+2025-09-11 14:34:40,597 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:40,614 p=101170 u=hemanth n=ansible | TASK [jenkins : Configure Jenkins environment] ***********************************************************************************************************************************************
+2025-09-11 14:34:44,469 p=101170 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:34:44,486 p=101170 u=hemanth n=ansible | TASK [jenkins : Start and enable Jenkins] ****************************************************************************************************************************************************
+2025-09-11 14:34:46,622 p=101170 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-11 14:34:46,625 p=101170 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2025-09-11 14:34:46,626 p=101170 u=hemanth n=ansible | dev-jenkins-server         : ok=16   changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 14:46:05,293 p=108353 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************************************************************************
+2025-09-11 14:46:05,315 p=108353 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************
+2025-09-11 14:46:10,210 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:10,268 p=108353 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************************************************************************
+2025-09-11 14:46:12,959 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:12,976 p=108353 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************************************************************************
+2025-09-11 14:46:16,767 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:16,789 p=108353 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************************************************************************
+2025-09-11 14:46:20,973 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:20,984 p=108353 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************************************************************************
+2025-09-11 14:46:23,096 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:23,110 p=108353 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************************************************************************
+2025-09-11 14:46:27,937 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:27,949 p=108353 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************************************************************************
+2025-09-11 14:46:32,024 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:32,041 p=108353 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************************************************************************
+2025-09-11 14:46:34,184 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:34,204 p=108353 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************************************************************************
+2025-09-11 14:46:35,827 p=108353 u=hemanth n=ansible | changed: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 14:46:35,850 p=108353 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************************************************************************
+2025-09-11 14:46:39,490 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:39,501 p=108353 u=hemanth n=ansible | TASK [jenkins : Add Jenkins key] *************************************************************************************************************************************************************
+2025-09-11 14:46:41,274 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:41,287 p=108353 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************************************************************************
+2025-09-11 14:46:43,227 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:43,237 p=108353 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************************************************************************
+2025-09-11 14:46:47,579 p=108353 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 14:46:47,590 p=108353 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************************************************************************
+2025-09-11 14:46:49,702 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:49,714 p=108353 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins home directory exists] ****************************************************************************************************************************************
+2025-09-11 14:46:54,256 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:54,273 p=108353 u=hemanth n=ansible | TASK [jenkins : Configure Jenkins environment] ***********************************************************************************************************************************************
+2025-09-11 14:46:57,980 p=108353 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 14:46:57,991 p=108353 u=hemanth n=ansible | TASK [jenkins : Set JAVA_HOME in Jenkins systemd service] ************************************************************************************************************************************
+2025-09-11 14:46:59,562 p=108353 u=hemanth n=ansible | ERROR! The requested handler 'restart jenkins' was not found in either the main handlers list nor in the listening handlers list
+2025-09-11 15:00:36,796 p=116463 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************************************************************************
+2025-09-11 15:00:36,816 p=116463 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************
+2025-09-11 15:00:40,551 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:00:40,588 p=116463 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************************************************************************
+2025-09-11 15:00:42,941 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:00:42,959 p=116463 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************************************************************************
+2025-09-11 15:00:44,804 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:00:44,828 p=116463 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************************************************************************
+2025-09-11 15:00:48,189 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:00:48,200 p=116463 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************************************************************************
+2025-09-11 15:00:50,149 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:00:50,171 p=116463 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************************************************************************
+2025-09-11 15:00:51,763 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:00:51,778 p=116463 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************************************************************************
+2025-09-11 15:00:55,123 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:00:55,139 p=116463 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************************************************************************
+2025-09-11 15:00:57,280 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:00:57,308 p=116463 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************************************************************************
+2025-09-11 15:00:58,875 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 15:00:58,903 p=116463 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************************************************************************
+2025-09-11 15:01:02,352 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:01:02,372 p=116463 u=hemanth n=ansible | TASK [jenkins : Add Jenkins key] *************************************************************************************************************************************************************
+2025-09-11 15:01:04,026 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:01:04,047 p=116463 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************************************************************************
+2025-09-11 15:01:05,393 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:01:05,404 p=116463 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************************************************************************
+2025-09-11 15:01:08,538 p=116463 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 15:01:08,551 p=116463 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************************************************************************
+2025-09-11 15:01:10,444 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:01:10,461 p=116463 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins home directory exists] ****************************************************************************************************************************************
+2025-09-11 15:01:13,053 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:01:13,067 p=116463 u=hemanth n=ansible | TASK [jenkins : Configure Jenkins environment] ***********************************************************************************************************************************************
+2025-09-11 15:01:16,591 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:01:16,606 p=116463 u=hemanth n=ansible | TASK [jenkins : Set JAVA_HOME in Jenkins systemd service] ************************************************************************************************************************************
+2025-09-11 15:01:19,332 p=116463 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:01:19,381 p=116463 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2025-09-11 15:01:19,382 p=116463 u=hemanth n=ansible | dev-jenkins-server         : ok=17   changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-09-11 15:05:11,706 p=119082 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************************************************************************
+2025-09-11 15:05:11,730 p=119082 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************
+2025-09-11 15:05:16,477 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:16,514 p=119082 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************************************************************************
+2025-09-11 15:05:19,231 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:19,255 p=119082 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************************************************************************
+2025-09-11 15:05:22,617 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:22,646 p=119082 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************************************************************************
+2025-09-11 15:05:25,912 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:25,927 p=119082 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************************************************************************
+2025-09-11 15:05:27,925 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:27,939 p=119082 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************************************************************************
+2025-09-11 15:05:29,543 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:29,556 p=119082 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************************************************************************
+2025-09-11 15:05:32,980 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:32,997 p=119082 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************************************************************************
+2025-09-11 15:05:35,102 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:35,120 p=119082 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************************************************************************
+2025-09-11 15:05:36,980 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 15:05:37,012 p=119082 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************************************************************************
+2025-09-11 15:05:40,756 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:40,768 p=119082 u=hemanth n=ansible | TASK [jenkins : Add Jenkins key] *************************************************************************************************************************************************************
+2025-09-11 15:05:42,571 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:42,583 p=119082 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************************************************************************
+2025-09-11 15:05:43,955 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:43,967 p=119082 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************************************************************************
+2025-09-11 15:05:47,168 p=119082 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 15:05:47,189 p=119082 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************************************************************************
+2025-09-11 15:05:49,478 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:49,489 p=119082 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins home directory exists] ****************************************************************************************************************************************
+2025-09-11 15:05:51,168 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:51,186 p=119082 u=hemanth n=ansible | TASK [jenkins : Configure Jenkins environment] ***********************************************************************************************************************************************
+2025-09-11 15:05:53,780 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:53,794 p=119082 u=hemanth n=ansible | TASK [jenkins : Set JAVA_HOME in Jenkins systemd service] ************************************************************************************************************************************
+2025-09-11 15:05:55,291 p=119082 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:05:55,335 p=119082 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2025-09-11 15:05:55,335 p=119082 u=hemanth n=ansible | dev-jenkins-server         : ok=17   changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-09-11 15:17:24,209 p=126130 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 15:17:24,228 p=126130 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 15:17:27,956 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:27,992 p=126130 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 15:17:30,250 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:30,262 p=126130 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 15:17:32,194 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:32,215 p=126130 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 15:17:35,573 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:35,587 p=126130 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 15:17:37,298 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:37,316 p=126130 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 15:17:38,741 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:38,757 p=126130 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 15:17:41,992 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:42,012 p=126130 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 15:17:43,806 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:43,821 p=126130 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 15:17:45,329 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 15:17:45,359 p=126130 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 15:17:48,671 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:48,685 p=126130 u=hemanth n=ansible | TASK [jenkins : Add Jenkins GPG key] *********************************************************************************************
+2025-09-11 15:17:50,141 p=126130 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 15:17:50,155 p=126130 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-11 15:17:57,169 p=126130 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 15:17:57,184 p=126130 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-11 15:17:59,024 p=126130 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:17:59,043 p=126130 u=hemanth n=ansible | TASK [jenkins : Start and enable Jenkins] ****************************************************************************************
+2025-09-11 15:18:01,307 p=126130 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-11 15:18:01,312 p=126130 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 15:18:01,313 p=126130 u=hemanth n=ansible | dev-jenkins-server         : ok=13   changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 15:18:50,632 p=127089 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 15:18:50,655 p=127089 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 15:18:55,445 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:18:55,482 p=127089 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 15:18:57,773 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:18:57,788 p=127089 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 15:18:59,863 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:18:59,889 p=127089 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 15:19:03,472 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:19:03,489 p=127089 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 15:19:05,267 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:19:05,282 p=127089 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 15:19:06,937 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:19:06,950 p=127089 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 15:19:10,197 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:19:10,212 p=127089 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 15:19:12,103 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:19:12,119 p=127089 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 15:19:13,688 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 15:19:13,711 p=127089 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 15:19:17,911 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:19:17,927 p=127089 u=hemanth n=ansible | TASK [jenkins : Add Jenkins GPG key] *********************************************************************************************
+2025-09-11 15:19:23,530 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:19:23,550 p=127089 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-11 15:19:25,307 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:19:25,323 p=127089 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-11 15:19:27,181 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:19:27,200 p=127089 u=hemanth n=ansible | TASK [jenkins : Check Java installation] *****************************************************************************************
+2025-09-11 15:19:28,752 p=127089 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 15:19:28,768 p=127089 u=hemanth n=ansible | TASK [jenkins : Show Java version] ***********************************************************************************************
+2025-09-11 15:19:28,799 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server] => {
+    "java_check.stderr_lines": [
+        "openjdk version \"11.0.28\" 2025-07-15",
+        "OpenJDK Runtime Environment (build 11.0.28+6-post-Ubuntu-1ubuntu124.04.1)",
+        "OpenJDK 64-Bit Server VM (build 11.0.28+6-post-Ubuntu-1ubuntu124.04.1, mixed mode, sharing)"
+    ]
+}
+2025-09-11 15:19:28,808 p=127089 u=hemanth n=ansible | TASK [jenkins : Try to start Jenkins] ********************************************************************************************
+2025-09-11 15:19:30,658 p=127089 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-11 15:19:30,659 p=127089 u=hemanth n=ansible | ...ignoring
+2025-09-11 15:19:30,676 p=127089 u=hemanth n=ansible | TASK [jenkins : Show Jenkins logs if failed] *************************************************************************************
+2025-09-11 15:19:32,339 p=127089 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 15:19:32,354 p=127089 u=hemanth n=ansible | TASK [jenkins : Display Jenkins error logs] **************************************************************************************
+2025-09-11 15:19:32,385 p=127089 u=hemanth n=ansible | ok: [dev-jenkins-server] => {
+    "jenkins_logs.stdout_lines": [
+        "Sep 11 09:48:03 ip-10-0-0-243 jenkins[39181]: Supported Java versions are: [17, 21]",
+        "Sep 11 09:48:03 ip-10-0-0-243 jenkins[39181]: See https://jenkins.io/redirect/java-support/ for more information.",
+        "Sep 11 09:48:03 ip-10-0-0-243 systemd[1]: jenkins.service: Main process exited, code=exited, status=1/FAILURE",
+        "Sep 11 09:48:03 ip-10-0-0-243 systemd[1]: jenkins.service: Failed with result 'exit-code'.",
+        "Sep 11 09:48:03 ip-10-0-0-243 systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.",
+        "Sep 11 09:48:03 ip-10-0-0-243 systemd[1]: jenkins.service: Scheduled restart job, restart counter is at 4.",
+        "Sep 11 09:48:03 ip-10-0-0-243 systemd[1]: Starting jenkins.service - Jenkins Continuous Integration Server...",
+        "Sep 11 09:48:03 ip-10-0-0-243 jenkins[39214]: Running with Java 11 from /usr/lib/jvm/java-11-openjdk-amd64, which is older than the minimum required version (Java 17).",
+        "Sep 11 09:48:03 ip-10-0-0-243 jenkins[39214]: Supported Java versions are: [17, 21]",
+        "Sep 11 09:48:03 ip-10-0-0-243 jenkins[39214]: See https://jenkins.io/redirect/java-support/ for more information.",
+        "Sep 11 09:48:03 ip-10-0-0-243 systemd[1]: jenkins.service: Main process exited, code=exited, status=1/FAILURE",
+        "Sep 11 09:48:03 ip-10-0-0-243 systemd[1]: jenkins.service: Failed with result 'exit-code'.",
+        "Sep 11 09:48:03 ip-10-0-0-243 systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.",
+        "Sep 11 09:48:04 ip-10-0-0-243 systemd[1]: jenkins.service: Scheduled restart job, restart counter is at 5.",
+        "Sep 11 09:48:04 ip-10-0-0-243 systemd[1]: jenkins.service: Start request repeated too quickly.",
+        "Sep 11 09:48:04 ip-10-0-0-243 systemd[1]: jenkins.service: Failed with result 'exit-code'.",
+        "Sep 11 09:48:04 ip-10-0-0-243 systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.",
+        "Sep 11 09:49:30 ip-10-0-0-243 systemd[1]: jenkins.service: Start request repeated too quickly.",
+        "Sep 11 09:49:30 ip-10-0-0-243 systemd[1]: jenkins.service: Failed with result 'exit-code'.",
+        "Sep 11 09:49:30 ip-10-0-0-243 systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server."
+    ]
+}
+2025-09-11 15:19:32,399 p=127089 u=hemanth n=ansible | TASK [jenkins : Fail if Jenkins won't start] *************************************************************************************
+2025-09-11 15:19:32,432 p=127089 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Jenkins failed to start - check logs above"}
+2025-09-11 15:19:32,434 p=127089 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 15:19:32,435 p=127089 u=hemanth n=ansible | dev-jenkins-server         : ok=18   changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=1   
+2025-09-11 15:21:17,402 p=128611 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 15:21:17,422 p=128611 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 15:21:20,958 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:21:20,997 p=128611 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 15:21:23,238 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:21:23,254 p=128611 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 15:21:24,925 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:21:24,951 p=128611 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 15:21:28,024 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:21:28,038 p=128611 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 15:21:29,630 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:21:29,644 p=128611 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 15:21:31,185 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:21:31,199 p=128611 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 15:21:34,265 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:21:34,278 p=128611 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 15:21:37,630 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:21:37,648 p=128611 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 15:21:38,948 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 15:21:38,976 p=128611 u=hemanth n=ansible | TASK [jenkins : Install Java 17] *************************************************************************************************
+2025-09-11 15:22:02,207 p=128611 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 15:22:02,222 p=128611 u=hemanth n=ansible | TASK [jenkins : Add Jenkins GPG key] *********************************************************************************************
+2025-09-11 15:22:03,833 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:22:03,849 p=128611 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-11 15:22:05,051 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:22:05,063 p=128611 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-11 15:22:06,798 p=128611 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 15:22:06,818 p=128611 u=hemanth n=ansible | TASK [jenkins : Start and enable Jenkins] ****************************************************************************************
+2025-09-11 15:22:08,135 p=128611 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-11 15:22:08,137 p=128611 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 15:22:08,138 p=128611 u=hemanth n=ansible | dev-jenkins-server         : ok=13   changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 17:14:43,289 p=191482 u=hemanth n=ansible | ERROR! conflicting action statements: hosts, tasks
+
+The error appears to be in '/home/hemanth/Documents/Trishala/Ansible/roles/jenkins/tasks/main.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: jenkins_master
+  ^ here
+
+2025-09-11 17:15:50,348 p=192171 u=hemanth n=ansible | ERROR! conflicting action statements: hosts, tasks
+
+The error appears to be in '/home/hemanth/Documents/Trishala/Ansible/roles/jenkins/tasks/main.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: jenkins_server
+  ^ here
+
+2025-09-11 17:18:06,025 p=193493 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************************************************************************
+2025-09-11 17:18:06,048 p=193493 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************
+2025-09-11 17:18:10,082 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:10,122 p=193493 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************************************************************************
+2025-09-11 17:18:12,398 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:12,412 p=193493 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************************************************************************
+2025-09-11 17:18:14,335 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:14,354 p=193493 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************************************************************************
+2025-09-11 17:18:20,734 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:20,750 p=193493 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************************************************************************
+2025-09-11 17:18:22,751 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:22,765 p=193493 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************************************************************************
+2025-09-11 17:18:24,379 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:24,392 p=193493 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************************************************************************
+2025-09-11 17:18:27,657 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:27,672 p=193493 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************************************************************************
+2025-09-11 17:18:29,491 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:29,514 p=193493 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************************************************************************
+2025-09-11 17:18:30,880 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 17:18:30,902 p=193493 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************************************************************************
+2025-09-11 17:18:33,779 p=193493 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:18:33,796 p=193493 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************************************************************************
+2025-09-11 17:18:35,642 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:35,662 p=193493 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository key] **************************************************************************************************************************************************
+2025-09-11 17:18:37,057 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:37,073 p=193493 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************************************************************************
+2025-09-11 17:18:38,310 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:38,325 p=193493 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************************************************************************
+2025-09-11 17:18:41,575 p=193493 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:18:41,590 p=193493 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins service is started and enabled] *******************************************************************************************************************************
+2025-09-11 17:18:43,708 p=193493 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-11 17:18:43,712 p=193493 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2025-09-11 17:18:43,713 p=193493 u=hemanth n=ansible | dev-jenkins-server         : ok=14   changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 17:28:26,912 p=199476 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************************************************************************
+2025-09-11 17:28:26,930 p=199476 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************
+2025-09-11 17:28:32,262 p=199476 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:28:32,300 p=199476 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************************************************************************
+2025-09-11 17:28:34,142 p=199476 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:28:34,165 p=199476 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************************************************************************
+2025-09-11 17:28:40,690 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:28:40,715 p=199476 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************************************************************************
+2025-09-11 17:29:07,647 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:29:07,663 p=199476 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************************************************************************
+2025-09-11 17:29:09,892 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:29:09,910 p=199476 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************************************************************************
+2025-09-11 17:29:18,779 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:29:18,795 p=199476 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************************************************************************
+2025-09-11 17:29:45,755 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:29:45,774 p=199476 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************************************************************************
+2025-09-11 17:29:47,898 p=199476 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 17:29:47,913 p=199476 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************************************************************************
+2025-09-11 17:29:49,396 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 17:29:49,423 p=199476 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************************************************************************
+2025-09-11 17:29:52,263 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:29:52,274 p=199476 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************************************************************************
+2025-09-11 17:30:21,037 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:30:21,047 p=199476 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository key] **************************************************************************************************************************************************
+2025-09-11 17:30:23,088 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:30:23,105 p=199476 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************************************************************************
+2025-09-11 17:30:33,221 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:30:33,235 p=199476 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************************************************************************
+2025-09-11 17:30:50,956 p=199476 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 17:30:50,971 p=199476 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins service is started and enabled] *******************************************************************************************************************************
+2025-09-11 17:30:52,882 p=199476 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Unable to start service jenkins: Job for jenkins.service failed because the control process exited with error code.\nSee \"systemctl status jenkins.service\" and \"journalctl -xeu jenkins.service\" for details.\n"}
+2025-09-11 17:30:52,885 p=199476 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2025-09-11 17:30:52,885 p=199476 u=hemanth n=ansible | dev-jenkins-server         : ok=14   changed=11   unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 18:47:42,336 p=20688 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 18:47:42,360 p=20688 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 18:47:46,113 p=20688 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:47:46,140 p=20688 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 18:48:17,551 p=20688 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 18:48:17,567 p=20688 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 18:48:19,554 p=20688 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:48:19,575 p=20688 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 18:48:28,868 p=20688 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:48:28,882 p=20688 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 18:48:30,508 p=20688 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:48:30,529 p=20688 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 18:48:32,069 p=20688 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:48:32,084 p=20688 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 18:48:35,339 p=20688 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:48:35,356 p=20688 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 18:48:37,188 p=20688 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:48:37,202 p=20688 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 18:48:38,616 p=20688 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 18:48:38,657 p=20688 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************
+2025-09-11 18:48:41,871 p=20688 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 18:48:41,887 p=20688 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 18:48:43,731 p=20688 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:48:43,742 p=20688 u=hemanth n=ansible | TASK [jenkins : Ensure Java 17 is set as default] ********************************************************************************
+2025-09-11 18:48:44,963 p=20688 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "Specified path /usr/lib/jvm/java-17-openjdk-amd64/bin/java does not exist"}
+2025-09-11 18:48:44,966 p=20688 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 18:48:44,966 p=20688 u=hemanth n=ansible | dev-jenkins-server         : ok=11   changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-11 18:52:35,030 p=23516 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-11 18:52:35,050 p=23516 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-11 18:52:39,593 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:52:39,635 p=23516 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-11 18:52:42,030 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:52:42,044 p=23516 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-11 18:52:44,266 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:52:44,290 p=23516 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-11 18:52:47,746 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:52:47,760 p=23516 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-11 18:52:49,329 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:52:49,344 p=23516 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-11 18:52:50,730 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:52:50,743 p=23516 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-11 18:52:53,882 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:52:53,894 p=23516 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-11 18:52:55,631 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:52:55,644 p=23516 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-11 18:52:56,966 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ubuntu)
+2025-09-11 18:52:57,000 p=23516 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************
+2025-09-11 18:52:59,936 p=23516 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 18:52:59,950 p=23516 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-11 18:53:01,790 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:53:01,803 p=23516 u=hemanth n=ansible | TASK [jenkins : Ensure Java 17 is set as default] ********************************************************************************
+2025-09-11 18:53:03,525 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:53:03,547 p=23516 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository key] **************************************************************************************
+2025-09-11 18:53:06,381 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:53:06,398 p=23516 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-11 18:53:07,560 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:53:07,572 p=23516 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-11 18:53:10,671 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:53:10,683 p=23516 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins service is started and enabled] *******************************************************************
+2025-09-11 18:53:33,246 p=23516 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-11 18:53:33,258 p=23516 u=hemanth n=ansible | TASK [jenkins : Wait for Jenkins to start up] ************************************************************************************
+2025-09-11 18:53:44,843 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:53:44,858 p=23516 u=hemanth n=ansible | TASK [jenkins : Get Jenkins initial admin password] ******************************************************************************
+2025-09-11 18:53:46,240 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-11 18:53:46,254 p=23516 u=hemanth n=ansible | TASK [jenkins : Display Jenkins initial admin password] **************************************************************************
+2025-09-11 18:53:46,281 p=23516 u=hemanth n=ansible | ok: [dev-jenkins-server] => {
+    "jenkins_initial_password.stdout": "bc0df5138c484c1ba362eb7b0d1e8b3b"
+}
+2025-09-11 18:53:46,325 p=23516 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-11 18:53:46,326 p=23516 u=hemanth n=ansible | dev-jenkins-server         : ok=19   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-09-12 12:39:41,455 p=72698 u=hemanth n=ansible | ERROR! the role 'maven' was not found in /home/hemanth/Documents/Trishala/Ansible/playbooks/roles:/home/hemanth/Documents/Trishala/Ansible/roles:/home/hemanth/Documents/Trishala/Ansible/playbooks
+
+The error appears to be in '/home/hemanth/Documents/Trishala/Ansible/playbooks/site.yml': line 12, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - docker
+    - maven
+      ^ here
+
+2025-09-12 12:48:31,469 p=76003 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-12 12:48:31,494 p=76003 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-12 12:48:39,063 p=76003 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:48:39,108 p=76003 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-12 12:48:42,215 p=76003 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:48:42,229 p=76003 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-12 12:48:48,216 p=76003 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:48:48,267 p=76003 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-12 12:49:12,220 p=76003 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:49:12,235 p=76003 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-12 12:49:16,235 p=76003 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:49:16,247 p=76003 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-12 12:49:35,505 p=76003 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:49:35,528 p=76003 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-12 12:50:02,835 p=76003 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:50:02,849 p=76003 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-12 12:50:05,262 p=76003 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:50:05,279 p=76003 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-12 12:50:07,122 p=76003 u=hemanth n=ansible | changed: [dev-jenkins-server] => (item=ubuntu)
+2025-09-12 12:50:07,156 p=76003 u=hemanth n=ansible | TASK [maven : Ensure Java is installed] ******************************************************************************************
+2025-09-12 12:50:53,405 p=76003 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:50:53,436 p=76003 u=hemanth n=ansible | TASK [maven : Download Maven] ****************************************************************************************************
+2025-09-12 12:50:56,375 p=76003 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "dest": "/tmp/apache-maven-3.9.9-bin.tar.gz", "elapsed": 0, "msg": "Request failed", "response": "HTTP Error 404: Not Found", "status_code": 404, "url": "https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz"}
+2025-09-12 12:50:56,378 p=76003 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-12 12:50:56,379 p=76003 u=hemanth n=ansible | dev-jenkins-server         : ok=10   changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-12 12:58:10,776 p=79307 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-12 12:58:10,793 p=79307 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-12 12:58:17,781 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:58:17,809 p=79307 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-12 12:58:51,216 p=79307 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:58:51,225 p=79307 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-12 12:58:53,354 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:58:53,375 p=79307 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-12 12:58:56,834 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:58:56,851 p=79307 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-12 12:58:59,262 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:58:59,284 p=79307 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-12 12:59:02,002 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:59:02,016 p=79307 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-12 12:59:06,093 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:59:06,117 p=79307 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-12 12:59:09,398 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:59:09,475 p=79307 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-12 12:59:12,921 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=ubuntu)
+2025-09-12 12:59:13,038 p=79307 u=hemanth n=ansible | TASK [maven : Ensure Java is installed] ******************************************************************************************
+2025-09-12 12:59:16,327 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:59:16,362 p=79307 u=hemanth n=ansible | TASK [maven : Install Maven] *****************************************************************************************************
+2025-09-12 12:59:24,358 p=79307 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:59:24,430 p=79307 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************
+2025-09-12 12:59:28,349 p=79307 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:59:28,416 p=79307 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-12 12:59:41,655 p=79307 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:59:41,672 p=79307 u=hemanth n=ansible | TASK [jenkins : Ensure Java 17 is set as default] ********************************************************************************
+2025-09-12 12:59:43,541 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 12:59:43,557 p=79307 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository key] **************************************************************************************
+2025-09-12 12:59:49,172 p=79307 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 12:59:49,185 p=79307 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-12 13:00:01,073 p=79307 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 13:00:01,091 p=79307 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-12 13:00:51,901 p=79307 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 13:00:51,917 p=79307 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins service is started and enabled] *******************************************************************
+2025-09-12 13:00:53,765 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 13:00:53,779 p=79307 u=hemanth n=ansible | TASK [jenkins : Wait for Jenkins to start up] ************************************************************************************
+2025-09-12 13:01:05,623 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 13:01:05,638 p=79307 u=hemanth n=ansible | TASK [jenkins : Get Jenkins initial admin password] ******************************************************************************
+2025-09-12 13:01:07,057 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 13:01:07,081 p=79307 u=hemanth n=ansible | TASK [jenkins : Display Jenkins initial admin password] **************************************************************************
+2025-09-12 13:01:07,112 p=79307 u=hemanth n=ansible | ok: [dev-jenkins-server] => {
+    "jenkins_initial_password.stdout": "9196ffb16d304b2b8c44ab1e76ced4d8"
+}
+2025-09-12 13:01:07,162 p=79307 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-12 13:01:07,163 p=79307 u=hemanth n=ansible | dev-jenkins-server         : ok=21   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-09-12 15:40:15,747 p=153820 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-12 15:40:15,784 p=153820 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-12 15:40:27,610 p=153820 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:40:27,637 p=153820 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-12 15:40:31,144 p=153820 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:40:31,168 p=153820 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-12 15:40:37,596 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:40:37,648 p=153820 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-12 15:40:55,688 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:40:55,700 p=153820 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-12 15:40:57,949 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:40:57,961 p=153820 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-12 15:41:06,906 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:41:06,922 p=153820 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-12 15:41:25,360 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:41:25,378 p=153820 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-12 15:41:29,613 p=153820 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:41:29,626 p=153820 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-12 15:41:33,842 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server] => (item=ubuntu)
+2025-09-12 15:41:33,878 p=153820 u=hemanth n=ansible | TASK [maven : Ensure Java is installed] ******************************************************************************************
+2025-09-12 15:42:04,695 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:42:04,707 p=153820 u=hemanth n=ansible | TASK [maven : Install Maven] *****************************************************************************************************
+2025-09-12 15:42:12,636 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:42:12,655 p=153820 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************
+2025-09-12 15:42:16,579 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:42:16,597 p=153820 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-12 15:42:25,508 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:42:25,526 p=153820 u=hemanth n=ansible | TASK [jenkins : Ensure Java 17 is set as default] ********************************************************************************
+2025-09-12 15:42:27,128 p=153820 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:42:27,141 p=153820 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository key] **************************************************************************************
+2025-09-12 15:42:28,928 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:42:28,941 p=153820 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-12 15:42:35,131 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:42:35,143 p=153820 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-12 15:42:56,881 p=153820 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:42:56,902 p=153820 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins service is started and enabled] *******************************************************************
+2025-09-12 15:42:58,305 p=153820 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:42:58,317 p=153820 u=hemanth n=ansible | TASK [jenkins : Wait for Jenkins to start up] ************************************************************************************
+2025-09-12 15:43:10,607 p=153820 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:43:10,628 p=153820 u=hemanth n=ansible | TASK [jenkins : Get Jenkins initial admin password] ******************************************************************************
+2025-09-12 15:43:13,603 p=153820 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:43:13,624 p=153820 u=hemanth n=ansible | TASK [jenkins : Display Jenkins initial admin password] **************************************************************************
+2025-09-12 15:43:13,660 p=153820 u=hemanth n=ansible | ok: [dev-jenkins-server] => {
+    "jenkins_initial_password.stdout": "fff1472806314d2fa5e9cbd6a2810eb7"
+}
+2025-09-12 15:43:13,714 p=153820 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-12 15:43:13,714 p=153820 u=hemanth n=ansible | dev-jenkins-server         : ok=21   changed=13   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-09-12 15:59:07,762 p=169293 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-12 15:59:07,781 p=169293 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-12 15:59:11,813 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:59:11,838 p=169293 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-12 15:59:36,576 p=169293 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 15:59:36,593 p=169293 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-12 15:59:39,030 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:59:39,054 p=169293 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-12 15:59:41,843 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:59:41,856 p=169293 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-12 15:59:43,451 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:59:43,465 p=169293 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-12 15:59:45,708 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:59:45,723 p=169293 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-12 15:59:49,876 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:59:49,889 p=169293 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-12 15:59:52,012 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:59:52,033 p=169293 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-12 15:59:54,583 p=169293 u=hemanth n=ansible | changed: [dev-jenkins-server] => (item=jenkins)
+2025-09-12 15:59:54,616 p=169293 u=hemanth n=ansible | TASK [maven : Ensure Java is installed] ******************************************************************************************
+2025-09-12 15:59:56,322 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:59:56,335 p=169293 u=hemanth n=ansible | TASK [maven : Install Maven] *****************************************************************************************************
+2025-09-12 15:59:58,282 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 15:59:58,302 p=169293 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************
+2025-09-12 16:00:00,815 p=169293 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-12 16:00:00,837 p=169293 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-12 16:00:02,574 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 16:00:02,590 p=169293 u=hemanth n=ansible | TASK [jenkins : Ensure Java 17 is set as default] ********************************************************************************
+2025-09-12 16:00:04,505 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 16:00:04,519 p=169293 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository key] **************************************************************************************
+2025-09-12 16:00:05,848 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 16:00:05,861 p=169293 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-12 16:00:07,746 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 16:00:07,759 p=169293 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-12 16:00:11,536 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 16:00:11,547 p=169293 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins service is started and enabled] *******************************************************************
+2025-09-12 16:00:14,246 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 16:00:14,258 p=169293 u=hemanth n=ansible | TASK [jenkins : Wait for Jenkins to start up] ************************************************************************************
+2025-09-12 16:00:26,134 p=169293 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-12 16:00:26,151 p=169293 u=hemanth n=ansible | TASK [jenkins : Get Jenkins initial admin password] ******************************************************************************
+2025-09-12 16:00:34,126 p=169293 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "cmd": ["cat", "/var/lib/jenkins/secrets/initialAdminPassword"], "delta": "0:00:01.004280", "end": "2025-09-12 10:30:33.717419", "msg": "non-zero return code", "rc": 1, "start": "2025-09-12 10:30:32.713139", "stderr": "cat: /var/lib/jenkins/secrets/initialAdminPassword: No such file or directory", "stderr_lines": ["cat: /var/lib/jenkins/secrets/initialAdminPassword: No such file or directory"], "stdout": "", "stdout_lines": []}
+2025-09-12 16:00:34,130 p=169293 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-12 16:00:34,131 p=169293 u=hemanth n=ansible | dev-jenkins-server         : ok=19   changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-15 15:01:07,562 p=78490 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-15 15:01:07,586 p=78490 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-15 15:01:15,391 p=78490 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:01:15,414 p=78490 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-15 15:01:17,633 p=78490 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:01:17,649 p=78490 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-15 15:01:27,233 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:01:27,255 p=78490 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-15 15:01:50,334 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:01:50,352 p=78490 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-15 15:01:52,610 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:01:52,623 p=78490 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-15 15:01:59,448 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:01:59,472 p=78490 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-15 15:02:16,272 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:02:16,287 p=78490 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-15 15:02:18,331 p=78490 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:02:18,367 p=78490 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-15 15:02:21,151 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server] => (item=jenkins)
+2025-09-15 15:02:21,190 p=78490 u=hemanth n=ansible | TASK [maven : Ensure Java is installed] ******************************************************************************************
+2025-09-15 15:02:50,278 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:02:50,300 p=78490 u=hemanth n=ansible | TASK [maven : Install Maven] *****************************************************************************************************
+2025-09-15 15:02:58,428 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:02:58,454 p=78490 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************
+2025-09-15 15:03:01,385 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:03:01,408 p=78490 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-15 15:03:03,459 p=78490 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:03:03,471 p=78490 u=hemanth n=ansible | TASK [jenkins : Ensure Java 17 is set as default] ********************************************************************************
+2025-09-15 15:03:05,419 p=78490 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:03:05,432 p=78490 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository key] **************************************************************************************
+2025-09-15 15:03:07,538 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:03:07,557 p=78490 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-15 15:03:14,295 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:03:14,308 p=78490 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-15 15:03:38,327 p=78490 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:03:38,340 p=78490 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins service is started and enabled] *******************************************************************
+2025-09-15 15:03:55,069 p=78490 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:03:55,087 p=78490 u=hemanth n=ansible | TASK [jenkins : Wait for Jenkins to start up] ************************************************************************************
+2025-09-15 15:04:06,667 p=78490 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:04:06,686 p=78490 u=hemanth n=ansible | TASK [jenkins : Get Jenkins initial admin password] ******************************************************************************
+2025-09-15 15:04:08,022 p=78490 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:04:08,041 p=78490 u=hemanth n=ansible | TASK [jenkins : Display Jenkins initial admin password] **************************************************************************
+2025-09-15 15:04:08,070 p=78490 u=hemanth n=ansible | ok: [dev-jenkins-server] => {
+    "jenkins_initial_password.stdout": "051ab9e176f8459b9affc729e8498725"
+}
+2025-09-15 15:04:08,112 p=78490 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-15 15:04:08,112 p=78490 u=hemanth n=ansible | dev-jenkins-server         : ok=21   changed=12   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-09-15 15:42:53,548 p=100479 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-15 15:42:53,577 p=100479 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-15 15:42:57,907 p=100479 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:42:57,938 p=100479 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-15 15:43:25,382 p=100479 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:43:25,397 p=100479 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-15 15:43:32,191 p=100479 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "msg": "No package matching 'awscli' is available"}
+2025-09-15 15:43:32,196 p=100479 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-15 15:43:32,197 p=100479 u=hemanth n=ansible | dev-jenkins-server         : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-09-15 15:46:36,554 p=102598 u=hemanth n=ansible | PLAY [all] ***********************************************************************************************************************
+2025-09-15 15:46:36,586 p=102598 u=hemanth n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2025-09-15 15:46:42,834 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:46:42,868 p=102598 u=hemanth n=ansible | TASK [common : Update all packages] **********************************************************************************************
+2025-09-15 15:46:49,946 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:46:49,962 p=102598 u=hemanth n=ansible | TASK [common : Install required tools] *******************************************************************************************
+2025-09-15 15:46:57,513 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:46:57,529 p=102598 u=hemanth n=ansible | TASK [common : Download AWS CLI v2 installer] ************************************************************************************
+2025-09-15 15:47:00,650 p=102598 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:47:00,675 p=102598 u=hemanth n=ansible | TASK [common : Unzip AWS CLI installer] ******************************************************************************************
+2025-09-15 15:47:06,600 p=102598 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:47:06,618 p=102598 u=hemanth n=ansible | TASK [common : Install AWS CLI v2] ***********************************************************************************************
+2025-09-15 15:47:10,157 p=102598 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:47:10,180 p=102598 u=hemanth n=ansible | TASK [common : Verify aws version] ***********************************************************************************************
+2025-09-15 15:47:11,975 p=102598 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:47:12,001 p=102598 u=hemanth n=ansible | TASK [docker : Install dependencies] *********************************************************************************************
+2025-09-15 15:47:15,281 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:47:15,297 p=102598 u=hemanth n=ansible | TASK [docker : Add Docker’s official GPG key] ************************************************************************************
+2025-09-15 15:47:22,378 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:47:22,394 p=102598 u=hemanth n=ansible | TASK [docker : Set up Docker stable repository] **********************************************************************************
+2025-09-15 15:47:28,481 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:47:28,498 p=102598 u=hemanth n=ansible | TASK [docker : Install Docker CE] ************************************************************************************************
+2025-09-15 15:47:34,640 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:47:34,657 p=102598 u=hemanth n=ansible | TASK [docker : Start and enable Docker] ******************************************************************************************
+2025-09-15 15:47:39,989 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:47:40,023 p=102598 u=hemanth n=ansible | TASK [docker : Add users to docker group] ****************************************************************************************
+2025-09-15 15:47:44,634 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server] => (item=jenkins)
+2025-09-15 15:47:44,666 p=102598 u=hemanth n=ansible | TASK [maven : Ensure Java is installed] ******************************************************************************************
+2025-09-15 15:47:49,121 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:47:49,142 p=102598 u=hemanth n=ansible | TASK [maven : Install Maven] *****************************************************************************************************
+2025-09-15 15:47:55,011 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:47:55,036 p=102598 u=hemanth n=ansible | TASK [jenkins : Update apt cache] ************************************************************************************************
+2025-09-15 15:47:58,867 p=102598 u=hemanth n=ansible | changed: [dev-jenkins-server]
+2025-09-15 15:47:58,879 p=102598 u=hemanth n=ansible | TASK [jenkins : Install Java] ****************************************************************************************************
+2025-09-15 15:48:02,745 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:48:02,760 p=102598 u=hemanth n=ansible | TASK [jenkins : Ensure Java 17 is set as default] ********************************************************************************
+2025-09-15 15:48:11,164 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:48:11,184 p=102598 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository key] **************************************************************************************
+2025-09-15 15:48:16,275 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:48:16,303 p=102598 u=hemanth n=ansible | TASK [jenkins : Add Jenkins repository] ******************************************************************************************
+2025-09-15 15:48:21,671 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:48:21,722 p=102598 u=hemanth n=ansible | TASK [jenkins : Install Jenkins] *************************************************************************************************
+2025-09-15 15:48:27,612 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:48:27,629 p=102598 u=hemanth n=ansible | TASK [jenkins : Ensure Jenkins service is started and enabled] *******************************************************************
+2025-09-15 15:48:29,831 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:48:29,853 p=102598 u=hemanth n=ansible | TASK [jenkins : Wait for Jenkins to start up] ************************************************************************************
+2025-09-15 15:48:41,537 p=102598 u=hemanth n=ansible | ok: [dev-jenkins-server]
+2025-09-15 15:48:41,557 p=102598 u=hemanth n=ansible | TASK [jenkins : Get Jenkins initial admin password] ******************************************************************************
+2025-09-15 15:48:43,102 p=102598 u=hemanth n=ansible | fatal: [dev-jenkins-server]: FAILED! => {"changed": false, "cmd": ["cat", "/var/lib/jenkins/secrets/initialAdminPassword"], "delta": "0:00:00.004407", "end": "2025-09-15 10:18:42.777905", "msg": "non-zero return code", "rc": 1, "start": "2025-09-15 10:18:42.773498", "stderr": "cat: /var/lib/jenkins/secrets/initialAdminPassword: No such file or directory", "stderr_lines": ["cat: /var/lib/jenkins/secrets/initialAdminPassword: No such file or directory"], "stdout": "", "stdout_lines": []}
+2025-09-15 15:48:43,105 p=102598 u=hemanth n=ansible | PLAY RECAP ***********************************************************************************************************************
+2025-09-15 15:48:43,106 p=102598 u=hemanth n=ansible | dev-jenkins-server         : ok=23   changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

@@ -1,0 +1,14 @@
+# Java settings
+java_package: openjdk-17-jdk
+
+# Jenkins repository settings
+jenkins_key_url: "https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key"
+jenkins_repo_url: "deb https://pkg.jenkins.io/debian-stable binary/"
+
+# Jenkins configuration
+jenkins_home: /var/lib/jenkins
+jenkins_port: 8080
+jenkins_startup_delay: 10
+jenkins_startup_timeout: 300
+
+
